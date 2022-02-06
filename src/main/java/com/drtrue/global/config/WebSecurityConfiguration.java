@@ -1,7 +1,6 @@
 package com.drtrue.global.config;
 
 import com.drtrue.global.exception.ExceptionHandlerFilter;
-import com.drtrue.global.jwt.JwtFilter;
 import com.navercorp.lucy.security.xss.servletfilter.XssEscapeServletFilter;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,9 +23,6 @@ import org.springframework.security.web.context.request.async.WebAsyncManagerInt
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private JwtFilter jwtFilter;
-
-    @Autowired
     private ExceptionHandlerFilter exceptionHandlerFilter;
 
     /**
@@ -46,15 +42,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
         httpSecurity
             .cors().and()
             .csrf().disable()
+            .formLogin().and()
             .authorizeRequests()
-            .antMatchers("/account/login").permitAll()
-            .antMatchers("/account/create").permitAll()
-            .antMatchers("/account/isExistAccount/*").permitAll()
-            .antMatchers("/product/*").permitAll()
-            .anyRequest().access("@authorizationChecker.check(request, authentication)").and()
+            .antMatchers("/account/**").permitAll()
+            .anyRequest().authenticated().and()
             .addFilterBefore(new XssEscapeServletFilter(), WebAsyncManagerIntegrationFilter.class)
-            .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-            .addFilterBefore(exceptionHandlerFilter, JwtFilter.class)
+            .addFilterBefore(exceptionHandlerFilter, UsernamePasswordAuthenticationFilter.class)
             .httpBasic();
     }
 

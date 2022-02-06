@@ -12,6 +12,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
+
 /**
  * Base 설정 파일 정의
  * 
@@ -43,5 +45,11 @@ public class BaseConfigurtion implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**").allowedOrigins("http://localhost:3000");
+    }
+
+    // thymeleaf layout
+    @Bean
+    public LayoutDialect layoutDialect() {
+        return new LayoutDialect();
     }
 }

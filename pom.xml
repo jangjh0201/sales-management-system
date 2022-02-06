@@ -127,6 +127,18 @@
 			<version>2.0.0</version>
 		</dependency>
 
+		<!-- thymeleaf 의존성 추가 -->
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring5</artifactId>
+		</dependency>
+
+		<!-- thymeleaf layout -->
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+		</dependency>
+
 		<!-- 개인정보처리 의존성 추가(커스텀 외부 자동 설정 Bean) -->
 		<!-- <dependency>
 			<groupId>com.drtrue</groupId>

@@ -1,5 +1,7 @@
 package com.drtrue.domain.account;
 
+import java.util.List;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -56,6 +58,15 @@ public interface AccountService extends UserDetailsService {
      * @since 1.0
      */
     Account retrieveAccount(String email);
+
+    /**
+     * 계정 정보 조회
+     * 
+     * @param account
+     * @return Account
+     * @since 1.0
+     */
+    List<Account> retrieveAccountAll();
 
     /**
      * userName 계정 탐색

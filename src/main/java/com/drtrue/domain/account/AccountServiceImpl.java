@@ -1,6 +1,7 @@
 package com.drtrue.domain.account;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -157,5 +158,18 @@ public class AccountServiceImpl implements AccountService {
         if(result.isEmpty())
             throw new UsernameNotFoundException(email);
         return accountRrpository.save(result.get());
+    }
+
+       /**
+     * 계정 정보 수정
+     * 
+     * @param email
+     * @return Account
+     * @since 1.0
+     */
+    @Override
+    public List<Account> retrieveAccountAll(){
+        List<Account> result = accountRrpository.findAll();
+        return result;
     }
 }
