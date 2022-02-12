@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface AccountRepository extends JpaRepository<Account, Long> {
 
     /**
-     * userName 기반 계정 탐색 
+     * emailAddress 기반 계정 탐색
      *
      * @param emailAddress
      * @return Optional<Account>

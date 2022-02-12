@@ -24,7 +24,6 @@ public class AuthorityController {
     @Autowired
     AuthorityRepository authorityRepository;
 
-
     /**
      * 권한 생성 웹서비스
      * 

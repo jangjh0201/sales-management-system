@@ -14,7 +14,7 @@ import org.springframework.context.annotation.Bean;
  * @since 1.0
  */
 @SpringBootApplication
-public class DrtruebackendApplication {
+public class SalesManagementSystemApplication {
 
 	/**
 	 * Spring Boot main 메소드
@@ -22,17 +22,17 @@ public class DrtruebackendApplication {
 	 * @since 1.0
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(DrtruebackendApplication.class, args);
+		SpringApplication.run(SalesManagementSystemApplication.class, args);
 	}
-	
-	@Bean
-    public FilterRegistrationBean<XssEscapeServletFilter> filterRegistrationBean() {
-        FilterRegistrationBean<XssEscapeServletFilter> filterRegistration = new FilterRegistrationBean<>();
-        filterRegistration.setFilter(new XssEscapeServletFilter());
-        filterRegistration.setOrder(1);
-        filterRegistration.addUrlPatterns("/*");
 
-        return filterRegistration;
-    }
+	@Bean
+	public FilterRegistrationBean<XssEscapeServletFilter> filterRegistrationBean() {
+		FilterRegistrationBean<XssEscapeServletFilter> filterRegistration = new FilterRegistrationBean<>();
+		filterRegistration.setFilter(new XssEscapeServletFilter());
+		filterRegistration.setOrder(1);
+		filterRegistration.addUrlPatterns("/*");
+
+		return filterRegistration;
+	}
 
 }
