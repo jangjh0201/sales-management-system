@@ -1,4 +1,4 @@
-package com.drtrue.domain.store;
+package com.drtrue.domain.data.store;
 
 /**
  * 판매처 관련 Service
@@ -9,9 +9,9 @@ package com.drtrue.domain.store;
 public interface StoreService {
 
     /**
-     * storeNum 기반 탐색
+     * storeId 기반 탐색
      * 
-     * @param storeNum
+     * @param storeId
      * @return Store
      * @since 1.0
      */
