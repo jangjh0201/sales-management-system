@@ -37,10 +37,14 @@ public class Value extends BaseEntity {
     private Date orderDate;
 
     // // 상품 분류
-    // private Product product = new Product();
+    @OneToOne
+    @JoinColumn(name = "PRODUCT_TYPE")
+    private Product product;
 
     // // 판매처
-    // private Store store = new Store();
+    @OneToOne
+    @JoinColumn(name = "storeName")
+    private Store store;
 
     // 수량
     @Column
