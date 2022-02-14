@@ -19,6 +19,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
      * @return Optional<Account>
      * @since 1.0
      */
+
     Optional<Account> findByEmailIgnoreCase(String email);
 
 }
