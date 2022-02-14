@@ -1,4 +1,4 @@
-package com.drtrue.domain.value;
+package com.drtrue.domain.data.value;
 
 import java.util.Date;
 
@@ -9,10 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import com.drtrue.domain.BaseEntity;
-import com.drtrue.domain.product.*;
-import com.drtrue.domain.store.*;
+import com.drtrue.domain.data.product.*;
+import com.drtrue.domain.data.store.*;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 입력값 Entity 정의
@@ -22,29 +25,32 @@ import lombok.EqualsAndHashCode;
  * @since 1.0
  */
 @Entity
+@Data
 @EqualsAndHashCode(callSuper = false)
+@AllArgsConstructor
+@NoArgsConstructor
 public class Value extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int valueNum;
-
-    @Enumerated(EnumType.STRING)
-    private BusinessType businessType;
+    private int valueId;
 
     // 주문일
     @Temporal(TemporalType.DATE)
     private Date orderDate;
 
-    // // 상품 분류
-    @OneToOne
-    @JoinColumn(name = "PRODUCT_TYPE")
-    private Product product;
+    @Enumerated(EnumType.STRING)
+    private BusinessType businessType;
 
-    // // 판매처
+    // 상품 분류
     @OneToOne
-    @JoinColumn(name = "storeName")
-    private Store store;
+    @JoinColumn(name = "prodId")
+    private int product;
+
+    // 판매처
+    @OneToOne
+    @JoinColumn(name = "storeId")
+    private int store;
 
     // 수량
     @Column

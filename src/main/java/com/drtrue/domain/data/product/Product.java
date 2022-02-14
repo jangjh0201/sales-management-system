@@ -1,13 +1,12 @@
-package com.drtrue.domain.product;
+package com.drtrue.domain.data.product;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import com.drtrue.domain.BaseEntity;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
@@ -17,14 +16,13 @@ import lombok.EqualsAndHashCode;
  * @since 1.0
  */
 @Entity
-@Table(name = "PRODUCTS", uniqueConstraints = {
-        @UniqueConstraint(name = "PRODUCT_TYPE", columnNames = { "highLevel", "midLevel", "lowLevel" }) })
+@Data
 @EqualsAndHashCode(callSuper = false)
 public class Product extends BaseEntity {
 
     @Id
     @GeneratedValue
-    private int prodNum;
+    private int prodId;
 
     private String highLevel;
 

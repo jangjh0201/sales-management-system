@@ -1,4 +1,4 @@
-package com.drtrue.domain.product;
+package com.drtrue.domain.data.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

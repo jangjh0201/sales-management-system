@@ -31,7 +31,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class AccountServiceImpl implements AccountService {
 
     @Autowired
-    private AccountRepository accountRrpository;
+    private AccountRepository accountRepository;
 
     @Autowired
     private AuthorityRepository authorityRepository;
@@ -39,7 +39,7 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     PasswordEncoder passwordEncoder;
 
-     /**
+    /**
      * 계정 존재 여부 확인
      * 
      * @param userName
@@ -47,10 +47,9 @@ public class AccountServiceImpl implements AccountService {
      * @since 1.0
      */
     @Override
-    public void isExistAccount(String email)
-    {
-        Optional<Account> result = accountRrpository.findByEmailIgnoreCase(email);
-        if(result.isPresent())
+    public void isExistAccount(String email) {
+        Optional<Account> result = accountRepository.findByEmailIgnoreCase(email);
+        if (result.isPresent())
             throw new CustomException(ExceptionEnum.CONFLICT);
     }
 
@@ -72,14 +71,14 @@ public class AccountServiceImpl implements AccountService {
             throw new CustomException(ExceptionEnum.INTERNAL_SERVER_ERROR);
 
         // 계정 정보 중복 여부 확인
-        Optional<Account> result2 = accountRrpository.findByEmailIgnoreCase(account.getEmail());
+        Optional<Account> result2 = accountRepository.findByEmailIgnoreCase(account.getEmail());
         if (result2.isPresent())
             throw new CustomException(ExceptionEnum.CONFLICT);
 
         // 계정 생성
         account.setAuthority(result1.get());
         account.setPassword(passwordEncoder.encode(account.getPassword()));
-        return accountRrpository.save(account);
+        return accountRepository.save(account);
     }
 
     /**
@@ -93,7 +92,7 @@ public class AccountServiceImpl implements AccountService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 
         // 계정 존재 여부 확인
-        Optional<Account> result = accountRrpository.findByEmailIgnoreCase(email);
+        Optional<Account> result = accountRepository.findByEmailIgnoreCase(email);
         if (result.isEmpty()) {
             throw new UsernameNotFoundException(email);
         } else {
@@ -107,7 +106,7 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
-      /**
+    /**
      * 계정 비밀번호 변경
      * 
      * @param email, newPassword
@@ -115,14 +114,14 @@ public class AccountServiceImpl implements AccountService {
      * @since 1.0
      */
     @Override
-    public Account updateAccountPasswd(String email, String newPassword){
-        Optional<Account> result = accountRrpository.findByEmailIgnoreCase(email);
-        if(result.isEmpty())
+    public Account updateAccountPasswd(String email, String newPassword) {
+        Optional<Account> result = accountRepository.findByEmailIgnoreCase(email);
+        if (result.isEmpty())
             throw new UsernameNotFoundException(email);
 
         Account account = result.get();
         account.setPassword(passwordEncoder.encode(newPassword));
-        return accountRrpository.save(account);
+        return accountRepository.save(account);
     }
 
     /**
@@ -133,19 +132,19 @@ public class AccountServiceImpl implements AccountService {
      * @since 1.0
      */
     @Override
-    public Account updateAccount(String email, Account newAccount){
-        Optional<Account> result = accountRrpository.findByEmailIgnoreCase(email);
-        if(result.isEmpty())
+    public Account updateAccount(String email, Account newAccount) {
+        Optional<Account> result = accountRepository.findByEmailIgnoreCase(email);
+        if (result.isEmpty())
             throw new UsernameNotFoundException(email);
 
         Account account = result.get();
         account.setName(newAccount.getName());
         account.setPhoneNumber(newAccount.getPhoneNumber());
-        
-        return accountRrpository.save(account);
+
+        return accountRepository.save(account);
     }
 
-     /**
+    /**
      * 계정 정보 수정
      * 
      * @param email
@@ -153,14 +152,14 @@ public class AccountServiceImpl implements AccountService {
      * @since 1.0
      */
     @Override
-    public Account retrieveAccount(String email){
-        Optional<Account> result = accountRrpository.findByEmailIgnoreCase(email);
-        if(result.isEmpty())
+    public Account retrieveAccount(String email) {
+        Optional<Account> result = accountRepository.findByEmailIgnoreCase(email);
+        if (result.isEmpty())
             throw new UsernameNotFoundException(email);
-        return accountRrpository.save(result.get());
+        return accountRepository.save(result.get());
     }
 
-       /**
+    /**
      * 계정 정보 수정
      * 
      * @param email
@@ -168,8 +167,8 @@ public class AccountServiceImpl implements AccountService {
      * @since 1.0
      */
     @Override
-    public List<Account> retrieveAccountAll(){
-        List<Account> result = accountRrpository.findAll();
+    public List<Account> retrieveAccountAll() {
+        List<Account> result = accountRepository.findAll();
         return result;
     }
 }

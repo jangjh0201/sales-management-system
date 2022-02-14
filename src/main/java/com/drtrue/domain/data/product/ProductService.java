@@ -1,4 +1,4 @@
-package com.drtrue.domain.product;
+package com.drtrue.domain.data.product;
 
 /**
  * 상품 정보 관련 Service
@@ -9,9 +9,9 @@ package com.drtrue.domain.product;
 public interface ProductService {
 
     /**
-     * prodNum 기반 탐색
+     * prodId 기반 탐색
      * 
-     * @param prodNum
+     * @param prodId
      * @return Product
      * @since 1.0
      */
