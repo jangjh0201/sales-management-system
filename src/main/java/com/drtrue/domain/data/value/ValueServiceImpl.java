@@ -1,12 +1,15 @@
 package com.drtrue.domain.data.value;
 
+import com.drtrue.domain.data.product.Product;
 import com.drtrue.domain.data.product.ProductRepository;
+import com.drtrue.domain.data.store.Store;
 import com.drtrue.domain.data.store.StoreRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -37,10 +40,10 @@ public class ValueServiceImpl implements ValueService {
      * @since 1.0
      */
     @Override
-    public Value createValue(int valueId, Date orderDate, BusinessType businessType, int prodId, int storeId,
+    public Value createValue(int valueId, Date orderDate, BusinessType businessType, Product product, Store store,
             int count) {
 
-        Value value = new Value(valueId, orderDate, businessType, prodId, storeId, count);
+        Value value = new Value(valueId, orderDate, businessType, product, store, count);
         return valueRepository.save(value);
     };
 
@@ -52,14 +55,8 @@ public class ValueServiceImpl implements ValueService {
      * @since 1.0
      */
     @Override
-    public void readValue() {
-        valueRepository.findAll();
-    };
-
-    @Override
-    public void readValue(Value value) {
-        Optional<Value> v = valueRepository.findById(value.getValueId());
-        System.out.println(v);
+    public List<Value> readValue() {
+        return valueRepository.findAll();
     };
 
     /**
