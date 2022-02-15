@@ -16,7 +16,8 @@
     rel="stylesheet" />
     <!-- NProgress -->
     <link href="../../../static/nprogress.css" rel="stylesheet" />
-
+    <!-- bootstrap-daterangepicker -->
+    <link href="../../../static/daterangepicker.css" rel="stylesheet">
     <!-- Custom Theme Style -->
    <link href="../../../static/custom.min.css" rel="stylesheet">
   </head>
@@ -50,7 +51,12 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="../postValue.html"> 일일데이터 입력 </a></li>
+                  <li><a> 일일데이터 입력 </a>
+                    <ul class="nav child_menu">
+                      <li><a href="../postValue.html"> 일일데이터 입력 </a></li>
+                      <li><a href="../postFile.html"> 일일데이터 파일 업로드 </a></li>
+                    </ul>
+                  </li>
                   <li><a> 일일데이터 조회 </a>
                     <ul class="nav child_menu">
                       <li><a href="../valueTables/valueTable_B2C.html"><span class="badge bg-green pull-right">B2C</span> 일일데이터 조회</a></li>
@@ -114,19 +120,8 @@
               <div class="title_left">
                 <h3>기간별 판매추이</h3>
               </div>
-
-              <!-- 검색창 -->
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5   form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">검색</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
+          </div>
 
             <div class="clearfix"></div>
             <!-- 1행 -->
@@ -135,7 +130,13 @@
               <div class="col-md-6 col-sm-6  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>일별 판매추이</h2>
+                    <h2>일별 판매추이<small>(단위: 천원)</small></h2>
+                    <div class="col-md-6">
+                      <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
+                        <span>December 30, 2014 - January 28, 2015</span> <b class="caret"></b>
+                      </div>
+                    </div>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -158,7 +159,7 @@
               <div class="col-md-6 col-sm-6  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>주별 판매추이</h2>
+                    <h2>주별 판매추이<small>(단위: 천원)</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -185,7 +186,7 @@
               <div class="col-md-6 col-sm-6  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>월별 판매추이</small></h2>
+                    <h2>월별 판매추이<small>(단위: 천원)</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -208,7 +209,7 @@
               <div class="col-md-6 col-sm-6  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>분기별 판매추이</h2>
+                    <h2>분기별 판매추이<small>(단위: 천원)</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -235,7 +236,7 @@
               <div class="col-md-6 col-sm-6  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>연도별 판매추이</h2>
+                    <h2>연도별 판매추이<small>(단위: 천원)</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -258,7 +259,7 @@
                <div class="col-md-6 col-sm-6  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Bar graph <small>Sessions</small></h2>
+                    <h2>Bar graph <small>(단위: 천원)</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -307,6 +308,11 @@
     <script src="../../../static/nprogress.js"></script>
     <!-- Chart.js -->
     <script src="../../../static/Chart.min.js"></script>
+    <!-- DateJS -->
+    <script src="../../../static/date.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../../../static/moment.min.js"></script>
+    <script src="../../../static/daterangepicker.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../../../static/custom.min.js"></script>
