@@ -29,11 +29,11 @@ public class AuthorityServiceImpl implements AuthorityService {
      */
     public Authority CreateAuthority(Authority authority) {
 
-        //권한 중복 여부 확인
+        // 권한 중복 여부 확인
         Optional<Authority> result = authorityRepository.findByAuthorityNameIgnoreCase(authority.getAuthorityName());
-        if(result.isPresent())
+        if (result.isPresent())
             throw new CustomException(ExceptionEnum.CONFLICT);
-            
+
         return authorityRepository.save(authority);
     }
 }
