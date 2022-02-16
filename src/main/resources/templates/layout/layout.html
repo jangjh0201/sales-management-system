@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+  <head>   
+<!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8" />
+    <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge; chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <!-- Bootstrap CSS -->
+    <link th:href="@{bootstrap.min.css}" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css}"
+    rel="stylesheet" />
+    <!-- NProgress -->
+    <link th:href="@{nprogress.css}" rel="stylesheet" />
+    <!-- Custom Theme Style -->
+   <link th:href="@{custom.min.css}" rel="stylesheet">
+
+   <!-- 페이지 CSS 영역 -->
+   <th:block layout:fragment="userStyle"></th:block>
+
+   <!--title-->
+   <title layout:title-pattern="$CONTENT_TITLE :: $LAYOUT_TITLE">Sale Management System</title>
+   <!--/title-->
+  </head>
+
+  <body class="nav-md">
+    <div class="container body">
+      <div class="main_container">
+        
+        <!--left menu-->
+        <div th:replace="~{fragments/left::leftFragment}"></div>
+        <!--/left menu-->
+
+        <!--top navigation-->
+        <div th:replace="~{fragments/top::topFragment}"></div>
+        <!--/top navigation-->
+
+        <!--page content-->
+        <div th:replace="~{fragments/content::contentFragment}"></div>
+        <!--/page content-->
+
+        <!--footer content-->
+        <div th:replace="~{fragments/footer::footerFragment}"></div>
+        <!--/footer content-->
+
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script th:src="@{jquery.min.js}"></script>
+    <!-- Bootstrap -->
+   <script th:src="@{bootstrap.bundle.min.js}"></script>
+    <!-- FastClick -->
+    <script th:src="@{fastclick.js}"></script>
+    <!-- NProgress -->
+    <script th:src="@{nprogress.js}"></script>
+    <!-- Custom Theme Scripts -->
+    <script th:src="@{custom.min.js}"></script>
+	  <!-- 페이지 스크립트 영역 -->
+    <th:block layout:fragment="userScript"></th:block>
+
+  </body>
+</html>
