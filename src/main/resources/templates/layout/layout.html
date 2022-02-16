@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    <!-- Meta, title, CSS, favicons, etc. -->
+  <head>   
+<!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8" />
     <meta
     name="viewport"
@@ -19,9 +20,12 @@
     <link th:href="@{nprogress.css}" rel="stylesheet" />
     <!-- Custom Theme Style -->
    <link th:href="@{custom.min.css}" rel="stylesheet">
-  
+
+   <!-- 페이지 CSS 영역 -->
+   <th:block layout:fragment="userStyle"></th:block>
+
    <!--title-->
-   <title layout:title-pattern="$CONTENT_TITLE :: $LAYOUT_TITLE">sample</title>
+   <title layout:title-pattern="$CONTENT_TITLE :: $LAYOUT_TITLE">Sale Management System</title>
    <!--/title-->
   </head>
 
@@ -56,11 +60,9 @@
     <script th:src="@{fastclick.js}"></script>
     <!-- NProgress -->
     <script th:src="@{nprogress.js}"></script>
-    <!-- Chart.js -->
-    <script th:src="@{Chart.min.js}"></script>
     <!-- Custom Theme Scripts -->
     <script th:src="@{custom.min.js}"></script>
-	  <!-- 사용자 스크립트 영역 -->
+	  <!-- 페이지 스크립트 영역 -->
     <th:block layout:fragment="userScript"></th:block>
 
   </body>

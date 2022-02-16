@@ -3,7 +3,7 @@
   <div class="col-md-3 left_col" th:fragment="leftFragment">
     <div class="left_col scroll-view">
       <div class="navbar nav_title" style="border: 0;">
-        <a class="site_title" href="#"> <span>Dr.True</span></a>
+        <a class="site_title" href="#" th:href="@{/}"> <span>Dr.True</span></a>
       </div>
 
       <div class="clearfix"></div>
@@ -11,7 +11,7 @@
       <!-- menu profile quick info -->
       <div class="profile clearfix">
         <div class="profile_pic">
-          <img th:src="@{/static/images/user.png}" alt="userImage" class="img-circle profile_img">
+          <img th:src="@{../../static/images/user.png}" alt="userImage" class="img-circle profile_img" />
         </div>
         <div class="profile_info">
           <span>Welcome,</span>
@@ -23,40 +23,40 @@
       <br />
 
       <!-- sidebar menu -->
-      <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+      <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" th:fragment="page(page)">
         <div class="menu_section">
           <ul class="nav side-menu">
             <li><a> 일일데이터 입력 </a>
               <ul class="nav child_menu">
-                <li><a href="postValue.html"> 일일데이터 입력 </a></li>
-                <li><a href="postFile.html"> 일일데이터 파일 업로드 </a></li>
+                <li><a th:href="@{/postValue}"> 일일데이터 조회 </a></li>
+                <li><a th:href="@{/postFile}"> 일일데이터 파일 업로드 </a></li>
               </ul>
             </li>
             <li><a> 일일데이터 조회 </a>
               <ul class="nav child_menu">
-                <li><a href="valueTable_B2C.html"><span class="badge bg-green pull-right">B2C</span> 일일데이터 조회</a></li>
-                <li><a href="valueTable_B2B.html"><span class="badge bg-purple pull-right">B2B</span> 일일데이터 조회</a></li>
+                <li><a th:href="@{/valueTable_B2C}"><span class="badge bg-green pull-right">B2C</span> 일일데이터 조회</a></li>
+                <li><a th:href="@{/valueTable_B2B}"><span class="badge bg-purple pull-right">B2B</span> 일일데이터 조회</a></li>
               </ul>
             </li>
             <li><a> 가격정보 </a>
               <ul class="nav child_menu">
-                <li><a href="priceByStore_B2C.html"><span class="badge bg-green pull-right">B2C</span> 판매처별 제품가격</a></li>
-                <li><a href="discountByProduct_B2C.html"><span class="badge bg-green pull-right">B2C</span> 제품별 할인정보</a></li>
-                <li><a href="purchaseByStore_B2C.html"><span class="badge bg-green pull-right">B2C</span> 매출처별 원가&판관비 계산요소</a></li>
-                <li><a href="purchaseByStore_B2B.html"><span class="badge bg-purple pull-right">B2B</span> 매출처별 매입액</a></li>
+                <li><a th:href="@{/priceByStore_B2C}"><span class="badge bg-green pull-right">B2C</span> 판매처별 제품가격</a></li>
+                <li><a th:href="@{/discountByProduct_B2C}"><span class="badge bg-green pull-right">B2C</span> 제품별 할인정보</a></li>
+                <li><a th:href="@{/purchaseByStore_B2C}"><span class="badge bg-green pull-right">B2C</span> 매출처별 원가&판관비 계산요소</a></li>
+                <li><a th:href="@{/purchaseByStore_B2B}"><span class="badge bg-purple pull-right">B2B</span> 매출처별 매입액</a></li>
               </ul>
             </li>
             <li><a> 일일보고서 </a>
               <ul class="nav child_menu">
-                <li><a href="dailyReport_B2C.html"><span class="badge bg-green pull-right">B2C</span> 일일보고서</a></li>
-                <li><a href="dailyReport_B2B.html"><span class="badge bg-purple pull-right">B2B</span> 일일보고서</a></li>
+                <li><a th:href="@{/dailyReport_B2C}"><span class="badge bg-green pull-right">B2C</span> 일일보고서</a></li>
+                <li><a th:href="@{/dailyReport_B2B}"><span class="badge bg-purple pull-right">B2B</span> 일일보고서</a></li>
               </ul>
             </li>
             <li><a> 대시보드 </a>
               <ul class="nav child_menu">
-                <li><a href="salesTrend.html">기간별 판매추이</a></li>
-                <li><a href="productPreference.html">제품별 선호현황</a></li>
-                <li><a href="salesByStore.html">매출처별 매출현황</a></li>
+                <li><a th:href="@{/salesTrend}">기간별 판매추이</a></li>
+                <li><a th:href="@{/productPreference}">제품별 선호현황</a></li>
+                <li><a th:href="@{/salesByStore}">매출처별 매출현황</a></li>
               </ul>
             </li>
           </ul>
