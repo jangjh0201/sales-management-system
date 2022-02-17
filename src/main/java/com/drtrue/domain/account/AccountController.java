@@ -94,15 +94,4 @@ public class AccountController {
        return "/sample/sample";
     }
     
-     /**
-     * 계정 조회 웹서비스
-     * 
-     * @return ResponseEntity
-     * @since 1.0
-     */
-    @PerformanceAOPAnnotation
-    @GetMapping("/postValue")
-    public void postValue(){
-       System.out.println("/board/postValue");
-    }
 }

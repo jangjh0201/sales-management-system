@@ -4,7 +4,7 @@
 <head>
 
     <!-- title -->
-    <title>B2C 일일데이터 조회</title>
+    <title th:text="${pageTitle}"></title>
     <!-- /title -->
     
     <!-- 페이지 CSS 영역 -->
@@ -25,7 +25,7 @@
   
     <!-- content title -->
     <div class="title_left" layout:fragment="contentTitle">
-        <h3>B2C 일일데이터 조회</h3>
+        <h3 th:text="${pageTitle}"></h3>
     </div>
     <!-- /content title -->
 
@@ -34,7 +34,7 @@
       <div class="col-md-12 col-sm-12 ">
         <div class="x_panel">
           <div class="x_title">
-            <h2>B2C 일일데이터 조회<small>(단위:천원)</small></h2>
+            <h2>[[${pageTitle}]]<small th:text="|(단위: ${unit})|"></small></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>

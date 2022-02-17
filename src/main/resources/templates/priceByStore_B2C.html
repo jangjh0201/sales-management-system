@@ -4,7 +4,7 @@
 <head>
 
     <!-- title -->
-    <title>판매처별 제품가격</title>
+    <title th:text="${pageTitle}"></title>
     <!-- /title -->
     
     <!-- 페이지 CSS 영역 -->
@@ -19,12 +19,13 @@
   
     <!-- content title -->
     <div class="title_left" layout:fragment="contentTitle">
-        <h3>판매처별 제품가격</h3>
+        <h3 th:text="${pageTitle}"></h3>
     </div>
     <!-- /content title -->
 
     <!-- content body -->
     <div class="col-md-12 col-sm-12 col-xs-12" layout:fragment="contentBody">
+      <h2>[[${pageTitle}]]<small th:text="|(단위: ${unit})|"></small></h2>
       <p>grid.js 로 채울예정</p>
     </div>
 

@@ -4,7 +4,7 @@
 <head>
 
     <!-- title -->
-    <title>기간별 판매추이</title>
+    <title th:text="${pageTitle}"></title>
     <!-- /title -->
     
     <!-- 페이지 CSS 영역 -->
@@ -19,7 +19,7 @@
   
     <!-- content title -->
     <div class="title_left" layout:fragment="contentTitle">
-        <h3>기간별 판매추이</h3>
+      <h3 th:text="${pageTitle}"></h3>
     </div>
     <!-- /content title -->
 
@@ -30,7 +30,7 @@
         <div class="col-md-6 col-sm-6  ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>일별 판매추이<small>(단위: 천원)</small></h2>
+              <h2>[[|${periodUnit[0]}${graphTitle}|]]<small th:text="|(단위: ${unit})|"></small></h2>
               <div class="col-md-6">
                 <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                   <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
@@ -59,7 +59,7 @@
         <div class="col-md-6 col-sm-6  ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>주별 판매추이<small>(단위: 천원)</small></h2>
+              <h2>[[|${periodUnit[1]}${graphTitle}|]]<small th:text="|(단위: ${unit})|"></small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -86,7 +86,7 @@
         <div class="col-md-6 col-sm-6  ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>월별 판매추이<small>(단위: 천원)</small></h2>
+              <h2>[[|${periodUnit[2]}${graphTitle}|]]<small th:text="|(단위: ${unit})|"></small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -109,7 +109,7 @@
         <div class="col-md-6 col-sm-6  ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>분기별 판매추이<small>(단위: 천원)</small></h2>
+              <h2>[[|${periodUnit[3]}${graphTitle}|]]<small th:text="|(단위: ${unit})|"></small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -136,7 +136,7 @@
         <div class="col-md-6 col-sm-6  ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>연도별 판매추이<small>(단위: 천원)</small></h2>
+              <h2>[[|${periodUnit[4]}${graphTitle}|]]<small th:text="|(단위: ${unit})|"></small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -159,7 +159,7 @@
          <div class="col-md-6 col-sm-6  ">
           <div class="x_panel">
             <div class="x_title">
-              <h2>Bar graph <small>(단위: 천원)</small></h2>
+              <h2>[[|${periodUnit[5]}${graphTitle}|]]<small th:text="|(단위: ${unit})|"></small></h2>
               <ul class="nav navbar-right panel_toolbox">
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
@@ -181,10 +181,6 @@
       </div>
         
       </div>      
-      <!--2행-->
-      <div class="row"></div>
-      <!--3행-->
-      <div class="row"></div>
     </div>
 
   </div>
