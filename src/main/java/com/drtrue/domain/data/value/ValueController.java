@@ -1,10 +1,8 @@
 package com.drtrue.domain.data.value;
 
-import java.util.Date;
 import java.util.List;
 
-import com.drtrue.domain.data.product.Product;
-import com.drtrue.domain.data.store.Store;
+import com.drtrue.domain.data.BaseConrtoller;
 import com.drtrue.global.aop.annotations.PerformanceAOPAnnotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * 계정 관련 Controller
+ * 입력값 관련 Controller
  * 
  * @author 장준호
  * @since 1.0
@@ -34,7 +32,7 @@ public class ValueController {
     ValueRepository valueRepository;
 
     /**
-     * 계정 생성 웹서비스
+     * 입력값 생성 웹서비스
      * 
      * @return ResponseEntity
      * @since 1.0
@@ -44,24 +42,24 @@ public class ValueController {
     @ResponseBody
     public ResponseEntity<List<Value>> createValue(@RequestBody Value value) {
         valueService.createValue(value);
-        return new ResponseEntity<>(valueService.readValueAll(), HttpStatus.OK);
+        return new ResponseEntity<>(valueService.retrieveValueAll(), HttpStatus.OK);
     }
 
     /**
-     * 계정 조회 웹서비스
+     * 입력값 조회 웹서비스
      * 
      * @return ResponseEntity
      * @since 1.0
      */
     @PerformanceAOPAnnotation
-    @GetMapping("/value/read")
+    @GetMapping("/value/retrieve")
     @ResponseBody
-    public ResponseEntity<List<Value>> readValue() {
-        return new ResponseEntity<>(valueService.readValueAll(), HttpStatus.OK);
+    public ResponseEntity<List<Value>> retrieveValue() {
+        return new ResponseEntity<>(valueService.retrieveValueAll(), HttpStatus.OK);
     }
 
     /**
-     * 계정 갱신 웹서비스
+     * 입력값 갱신 웹서비스
      * 
      * @return ResponseEntity
      * @since 1.0
@@ -71,11 +69,11 @@ public class ValueController {
     @ResponseBody
     public ResponseEntity<List<Value>> deleteValue(int valueId) {
         valueService.deleteValue(valueId);
-        return new ResponseEntity<>(valueService.readValueAll(), HttpStatus.OK);
+        return new ResponseEntity<>(valueService.retrieveValueAll(), HttpStatus.OK);
     }
 
     /**
-     * 계정 조회 웹서비스
+     * 입력값 조회 웹서비스
      *
      * @return ResponseEntity
      * @since 1.0
