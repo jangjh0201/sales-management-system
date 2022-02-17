@@ -7,7 +7,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.drtrue.domain.BaseEntity;
-import com.drtrue.domain.data.discout.Discount;
+import com.drtrue.domain.data.discount.Discount;
 import com.drtrue.domain.data.product.Product;
 import com.drtrue.domain.data.store.Store;
 

@@ -28,6 +28,16 @@
     <!-- content body -->
     <div class="col-md-12 col-sm-12 col-xs-12" layout:fragment="contentBody">
         <h2 th:text="${pageTitle}"></h2>
+        
+        <form method="post">
+            <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="이름을 입력해주세요"/>
+                <button type="submit">제출</button>
+            </div>
+        </form>
+
+        <h2>입력 결과</h2>
+        <div th:text="${name}"></div>
     </div>
     <!-- /content body -->
 
