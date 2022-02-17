@@ -4,7 +4,7 @@
 <head>
 
     <!-- title -->
-    <title>일일데이터 입력</title>
+    <title th:text="${pageTitle}"></title>
     <!-- /title -->
     
     <!-- 페이지 CSS 영역 -->
@@ -19,7 +19,7 @@
   
     <!-- content title -->
     <div class="title_left" layout:fragment="contentTitle">
-        <h3>일일데이터 입력</h3>
+        <h3 th:text="${pageTitle}"></h3>
     </div>
     <!-- /content title -->
 
