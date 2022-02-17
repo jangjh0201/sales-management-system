@@ -9,7 +9,7 @@ package com.drtrue.domain.data.product;
 public interface ProductService {
 
     /**
-     * prodId 기반 탐색
+     * product 생성
      * 
      * @param prodId
      * @return Product

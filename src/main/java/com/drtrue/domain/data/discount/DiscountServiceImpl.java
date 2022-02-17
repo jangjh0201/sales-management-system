@@ -1,4 +1,4 @@
-package com.drtrue.domain.data.discout;
+package com.drtrue.domain.data.discount;
 
 import java.util.List;
 

@@ -9,7 +9,7 @@ package com.drtrue.domain.data.store;
 public interface StoreService {
 
     /**
-     * storeId 기반 탐색
+     * store 생성
      * 
      * @param storeId
      * @return Store

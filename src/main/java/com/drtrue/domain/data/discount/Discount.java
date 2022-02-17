@@ -1,6 +1,9 @@
-package com.drtrue.domain.data.discout;
+package com.drtrue.domain.data.discount;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
@@ -21,6 +24,8 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(callSuper = false)
 public class Discount {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int discountId;
 
     // 할인 이름

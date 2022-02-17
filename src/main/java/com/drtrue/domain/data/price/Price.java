@@ -2,12 +2,13 @@ package com.drtrue.domain.data.price;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import com.drtrue.domain.BaseEntity;
-import com.drtrue.domain.data.discout.Discount;
+import com.drtrue.domain.data.discount.Discount;
 import com.drtrue.domain.data.product.Product;
 import com.drtrue.domain.data.store.Store;
 
@@ -26,7 +27,7 @@ import lombok.EqualsAndHashCode;
 public class Price extends BaseEntity {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int priceId;
 
     // 판매가

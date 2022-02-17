@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 /**
  * 계정 관련 Controller
  * 
@@ -64,7 +63,7 @@ public class AccountController {
     @PerformanceAOPAnnotation
     @GetMapping("/account/retrieve")
     @ResponseBody
-    public ResponseEntity<UserDetails> retrieveAccount(Authentication authentication){
+    public ResponseEntity<UserDetails> retrieveAccount(Authentication authentication) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         return new ResponseEntity<>(userDetails, HttpStatus.OK);
     }
@@ -78,11 +77,11 @@ public class AccountController {
     @PerformanceAOPAnnotation
     @GetMapping("/account/retrieveAll")
     @ResponseBody
-    public ResponseEntity<List<Account>> retrieveAccountAll(){
+    public ResponseEntity<List<Account>> retrieveAccountAll() {
         return new ResponseEntity<>(accountService.retrieveAccountAll(), HttpStatus.OK);
     }
 
-     /**
+    /**
      * 계정 조회 웹서비스
      * 
      * @return ResponseEntity
@@ -90,8 +89,19 @@ public class AccountController {
      */
     @PerformanceAOPAnnotation
     @GetMapping("/test")
-    public String test(Authentication authentication){
-       return "/sample/sample";
+    public String test(Authentication authentication) {
+        return "/sample/sample";
     }
-    
+
+    /**
+     * 계정 조회 웹서비스
+     * 
+     * @return ResponseEntity
+     * @since 1.0
+     */
+    @PerformanceAOPAnnotation
+    @GetMapping("/postValue")
+    public void postValue() {
+        System.out.println("/board/postValue");
+    }
 }

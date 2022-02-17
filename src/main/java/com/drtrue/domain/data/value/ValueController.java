@@ -2,7 +2,6 @@ package com.drtrue.domain.data.value;
 
 import java.util.List;
 
-import com.drtrue.domain.data.BaseConrtoller;
 import com.drtrue.global.aop.annotations.PerformanceAOPAnnotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
