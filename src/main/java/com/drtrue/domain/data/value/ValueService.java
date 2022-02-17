@@ -26,7 +26,7 @@ public interface ValueService {
      * @return Value
      * @since 1.0
      */
-    List<Value> readValueAll();
+    List<Value> retrieveValueAll();
 
     /**
      * value data 갱신
@@ -35,7 +35,7 @@ public interface ValueService {
      * @return Value
      * @since 1.0
      */
-    Value updateValue(int valueId, Value value);
+    Value updateValue(Value value);
 
     /**
      * value data 삭제

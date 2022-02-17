@@ -21,8 +21,6 @@ public class ValueServiceImpl implements ValueService {
     /**
      * value data 생성
      * 
-     * @param <Date>
-     * 
      * @param valueId
      * @return Value
      * @since 1.0
@@ -41,7 +39,7 @@ public class ValueServiceImpl implements ValueService {
      * @since 1.0
      */
     @Override
-    public List<Value> readValueAll() {
+    public List<Value> retrieveValueAll() {
         List<Value> result = valueRepository.findAll();
         return result;
     };
@@ -54,8 +52,8 @@ public class ValueServiceImpl implements ValueService {
      * @since 1.0
      */
     @Override
-    public Value updateValue(int valueId, Value newValue) {
-        Optional<Value> result = valueRepository.findById(valueId);
+    public Value updateValue(Value newValue) {
+        Optional<Value> result = valueRepository.findById(newValue.getValueId());
         Value value = result.get();
         value = newValue;
 
