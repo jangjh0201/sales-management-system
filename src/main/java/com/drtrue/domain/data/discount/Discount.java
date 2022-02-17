@@ -10,7 +10,6 @@ import javax.persistence.ManyToOne;
 import com.drtrue.domain.data.product.Product;
 import com.drtrue.domain.data.store.Store;
 
-import groovy.transform.Generated;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -25,7 +24,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper = false)
 public class Discount {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int discountId;
@@ -35,7 +34,7 @@ public class Discount {
 
     // 할인율
     private int discountRate;
-    
+
     @ManyToOne
     @JoinColumn(name = "prodId")
     private Product product;

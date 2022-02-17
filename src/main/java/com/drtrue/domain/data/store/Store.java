@@ -24,5 +24,6 @@ public class Store extends BaseEntity {
     @GeneratedValue
     private int storeId;
 
+    // 판매처 이름
     private String storeName;
 }

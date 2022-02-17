@@ -24,9 +24,12 @@ public class Product extends BaseEntity {
     @GeneratedValue
     private int prodId;
 
+    // 대분류
     private String highLevel;
 
+    // 중분류
     private String midLevel;
 
+    // 소분류
     private String lowLevel;
 }
