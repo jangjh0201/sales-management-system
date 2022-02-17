@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
  * @author 장준호
  * @since 1.0
  */
+
 @Entity
 @Data
 @EqualsAndHashCode(callSuper = false)
