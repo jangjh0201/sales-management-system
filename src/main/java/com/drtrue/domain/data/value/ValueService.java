@@ -1,10 +1,6 @@
 package com.drtrue.domain.data.value;
 
-import java.util.Date;
 import java.util.List;
-
-import com.drtrue.domain.data.product.Product;
-import com.drtrue.domain.data.store.Store;
 
 /**
  * 입력값 관련 Service
@@ -21,7 +17,7 @@ public interface ValueService {
      * @return Value
      * @since 1.0
      */
-    Value createValue(int valueId, Date orderDate, BusinessType businessType, Product product, Store store, int count);
+    Value createValue(Value value);
 
     /**
      * value data 조회
@@ -30,7 +26,7 @@ public interface ValueService {
      * @return Value
      * @since 1.0
      */
-    List<Value> readValue();
+    List<Value> readValueAll();
 
     /**
      * value data 갱신

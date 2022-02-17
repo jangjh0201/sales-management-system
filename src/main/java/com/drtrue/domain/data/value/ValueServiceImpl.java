@@ -1,14 +1,8 @@
 package com.drtrue.domain.data.value;
 
-import com.drtrue.domain.data.product.Product;
-import com.drtrue.domain.data.product.ProductRepository;
-import com.drtrue.domain.data.store.Store;
-import com.drtrue.domain.data.store.StoreRepository;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,12 +18,6 @@ public class ValueServiceImpl implements ValueService {
     @Autowired
     private ValueRepository valueRepository;
 
-    @Autowired
-    private ProductRepository productRepository;
-
-    @Autowired
-    private StoreRepository storeRepository;
-
     /**
      * value data 생성
      * 
@@ -40,10 +28,8 @@ public class ValueServiceImpl implements ValueService {
      * @since 1.0
      */
     @Override
-    public Value createValue(int valueId, Date orderDate, BusinessType businessType, Product product, Store store,
-            int count) {
+    public Value createValue(Value value) {
 
-        Value value = new Value(valueId, orderDate, businessType, product, store, count);
         return valueRepository.save(value);
     };
 
@@ -55,8 +41,9 @@ public class ValueServiceImpl implements ValueService {
      * @since 1.0
      */
     @Override
-    public List<Value> readValue() {
-        return valueRepository.findAll();
+    public List<Value> readValueAll() {
+        List<Value> result = valueRepository.findAll();
+        return result;
     };
 
     /**
