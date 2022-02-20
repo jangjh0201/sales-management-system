@@ -140,11 +140,11 @@
 		</dependency>
 
 		<!-- 개인정보처리 의존성 추가(커스텀 외부 자동 설정 Bean) -->
-		<!-- <dependency>
+		<dependency>
 			<groupId>com.drtrue</groupId>
 			<artifactId>privacy-spring-boot-starter</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency> -->
+			<version>0.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -9,6 +9,7 @@ import javax.persistence.Transient;
 
 import com.drtrue.domain.BaseEntity;
 import com.drtrue.domain.authority.Authority;
+import com.drtrue.privacyspringbootstarter.annotaion.Email;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
