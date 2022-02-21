@@ -2,11 +2,15 @@ package com.drtrue.domain.account;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
+import com.drtrue.domain.product.Product;
 import com.drtrue.global.aop.annotations.PerformanceAOPAnnotation;
 import com.drtrue.global.properties.SampleProperties;
 import com.drtrue.privacyspringbootstarter.aop.annotations.PrivacyAOPAnnotation;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -100,5 +105,20 @@ public class AccountController {
     @GetMapping("/postValue")
     public void postValue() {
         System.out.println("/board/postValue");
+    }
+
+     /**
+     * product 전체 조회 웹서비스(Paging)
+     * 
+     * @return ResponseEntity
+     * @since 1.0
+     */
+    @PerformanceAOPAnnotation
+    @PrivacyAOPAnnotation
+    @GetMapping("/account/retrieveAllPaging")
+    @ResponseBody
+    public ResponseEntity<Page<Account>> retrieveAllPaging(HttpServletRequest request, Authentication authentication, @RequestParam Integer page) {
+        Page<Account> result= accountService.retrieveAllPaging(page);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }

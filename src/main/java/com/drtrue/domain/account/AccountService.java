@@ -2,6 +2,9 @@ package com.drtrue.domain.account;
 
 import java.util.List;
 
+import com.drtrue.domain.product.Product;
+
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
@@ -40,7 +43,6 @@ public interface AccountService extends UserDetailsService {
      */
     Account updateAccount(String email, Account newAccount);
 
-
     /**
      * 계정 비밀번호 변경
      * 
@@ -77,4 +79,6 @@ public interface AccountService extends UserDetailsService {
      */
     @Override
     UserDetails loadUserByUsername(String email);
+
+    Page<Account> retrieveAllPaging(Integer page);
 }

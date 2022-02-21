@@ -11,6 +11,8 @@ import com.drtrue.global.exception.CustomException;
 import com.drtrue.global.exception.ExceptionEnum;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -170,5 +172,10 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> retrieveAccountAll() {
         List<Account> result = accountRepository.findAll();
         return result;
+    }
+
+    @Override
+    public Page<Account> retrieveAllPaging(Integer page) {
+        return accountRepository.findAll(PageRequest.of(page,5));
     }
 }
