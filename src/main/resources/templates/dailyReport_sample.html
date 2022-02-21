@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}">
+
+<head>
+    <!-- title -->
+    <title th:text="${pageTitle}"></title>
+    <!-- /title -->
+    
+    <!-- 페이지 CSS 영역 -->
+    <th:block layout:fragment="userStyle">
+        <!-- iCheck -->
+        <link th:href="@{green.css}" rel="stylesheet">
+        <!-- Datatables -->
+        <link th:href="@{jsgrid-1.5.3/jsgrid.min.css}" rel="stylesheet">
+        <link th:href="@{jsgrid-1.5.3/jsgrid-theme.min.css}" rel="stylesheet">
+    </th:block>
+    <!-- /페이지 CSS 영역 -->
+</head>
+
+<body>
+  <script th:inline="javascript">
+    alert("You pressed a key inside the input field");
+        function myFunction() {
+            alert("You pressed a key inside the input field");
+        }
+    </script>
+    <!-- content title -->
+    <div class="title_left" layout:fragment="contentTitle">
+        <h3 th:text="${pageTitle}"></h3>
+    </div>
+    <!-- /content title -->
+
+    <!-- content body -->
+    <div class="col-md-12 col-sm-12 col-xs-12" layout:fragment="contentBody">
+      <div class="col-md-12 col-sm-12 ">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2>[[${pageTitle}]]<small th:text="|(단위: ${unit}원)|"></small></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Settings 1</a>
+                    <a class="dropdown-item" href="#">Settings 2</a>
+                  </div>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
+              <div class="row">
+                  <div class="col-sm-12">
+                    <div class="card-box table-responsive">
+            <p class="text-muted font-13 m-b-30">
+              B2C사업의 일일 매출 데이터입니다.
+            </p>
+            <div id="jsGrid"></div>
+          </div>
+        </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <!-- /content body -->
+
+  <!-- 사용자 script -->
+  <th:block layout:fragment="userScript">
+    <!-- iCheck -->
+    <script th:src="@{icheck.min.js}"></script>
+    <!-- Datatables -->
+    <script th:src="@{jsgrid-1.5.3/jsgrid.min.js}"></script>
+    <script th:src="@{js/dailyReport_sample.js}"></script>
+  </th:block>
+  <!-- /script -->
+</body>
+</html>
