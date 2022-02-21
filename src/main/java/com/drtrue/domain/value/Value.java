@@ -47,7 +47,7 @@ public class Value extends BaseEntity {
     @JoinColumn(name = "prodId")
     private Product product;
 
-    // 판매처
+    // 매출처
     @ManyToOne
     @JoinColumn(name = "storeId")
     private Store store;

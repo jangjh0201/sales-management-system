@@ -21,10 +21,23 @@ public class MainController {
 
   // 일일데이터 입력
   @PerformanceAOPAnnotation
-  @RequestMapping("/postValue")
-  public String postValue(Model model) {
-    model.addAttribute("pageTitle", "일일데이터 입력");
-    return "postValue";
+  @RequestMapping("/postValue_B2C")
+  public String postValue_B2C(Model model) {
+    model.addAttribute("pageTitle", "B2C 일일데이터 입력");
+    model.addAttribute("unit", "천");
+    model.addAttribute("msg", "B2C사업의 일일 매출 데이터 입력");
+    model.addAttribute("jsGrid", "postValue_B2C");
+    return "postValue_B2C";
+  }
+
+  @PerformanceAOPAnnotation
+  @RequestMapping("/postValue_B2B")
+  public String postValue_B2B(Model model) {
+    model.addAttribute("pageTitle", "B2B 일일데이터 입력");
+    model.addAttribute("unit", "천");
+    model.addAttribute("msg", "B2B사업의 일일 매출 데이터 입력");
+    model.addAttribute("jsGrid", "postValue_B2B");
+    return "postValue_B2B";
   }
 
   @PerformanceAOPAnnotation
@@ -40,6 +53,8 @@ public class MainController {
   public String valueTable_B2C(Model model) {
     model.addAttribute("pageTitle", "B2C 일일데이터 조회");
     model.addAttribute("unit", "천");
+    model.addAttribute("msg", "B2C사업의 일일 매출데이터입니다. Excel, PDF 등의 양식으로 다운받을 수 있습니다.");
+    model.addAttribute("jsGrid", "postValue_B2C");
     return "valueTable_B2C";
   }
 
@@ -48,6 +63,8 @@ public class MainController {
   public String valueTable_B2B(Model model) {
     model.addAttribute("pageTitle", "B2B 일일데이터 조회");
     model.addAttribute("unit", "천");
+    model.addAttribute("msg", "B2B사업의 일일 매출데이터입니다. Excel, PDF 등의 양식으로 다운받을 수 있습니다.");
+    model.addAttribute("jsGrid", "postValue_B2B");
     return "valueTable_B2B";
   }
 
@@ -65,6 +82,8 @@ public class MainController {
   public String priceByStore_B2C(Model model) {
     model.addAttribute("pageTitle", "판매처별 제품가격");
     model.addAttribute("unit", "천");
+    model.addAttribute("msg", "");
+    model.addAttribute("jsGrid", "priceByStore_B2C");
     return "priceByStore_B2C";
   }
 
@@ -73,6 +92,8 @@ public class MainController {
   public String discountByProduct_B2C(Model model) {
     model.addAttribute("pageTitle", "제품별 할인정보");
     model.addAttribute("unit", "천");
+    model.addAttribute("msg", "");
+    model.addAttribute("jsGrid", "discountByProduct_B2C");
     return "discountByProduct_B2C";
   }
 
@@ -80,6 +101,8 @@ public class MainController {
   public String purchaseByStore_B2C(Model model) {
     model.addAttribute("pageTitle", "매출처별 원가&판관비 계산요소");
     model.addAttribute("unit", "천");
+    model.addAttribute("msg", "");
+    model.addAttribute("jsGrid", "purchaseByStore_B2C");
     return "purchaseByStore_B2C";
   }
 
@@ -87,6 +110,8 @@ public class MainController {
   public String purchaseByStore_B2B(Model model) {
     model.addAttribute("pageTitle", "매출처별 매입액");
     model.addAttribute("unit", "천");
+    model.addAttribute("msg", "");
+    model.addAttribute("jsGrid", "purchaseByStore_B2B");
     return "purchaseByStore_B2B";
   }
 
@@ -95,6 +120,8 @@ public class MainController {
   public String dailyReport_B2C(Model model) {
     model.addAttribute("pageTitle", "B2C 일일보고서");
     model.addAttribute("unit", "천");
+    model.addAttribute("msg", "B2C사업의 일일 매출보고서입니다. Excel, PDF 등의 양식으로 다운받을 수 있습니다.");
+    model.addAttribute("jsGrid", "postValue_B2C");
     return "dailyReport_B2C";
   }
 
@@ -102,6 +129,8 @@ public class MainController {
   public String dailyReport_B2B(Model model) {
     model.addAttribute("pageTitle", "B2B 일일보고서");
     model.addAttribute("unit", "천");
+    model.addAttribute("msg", "B2B사업의 일일 매출보고서입니다. Excel, PDF 등의 양식으로 다운받을 수 있습니다.");
+    model.addAttribute("jsGrid", "postValue_B2B");
     return "dailyReport_B2B";
   }
 

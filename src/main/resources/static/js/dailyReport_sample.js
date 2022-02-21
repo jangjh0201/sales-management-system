@@ -36,8 +36,8 @@ $("#jsGrid").jsGrid({
     editing: true,
     sorting: true,
     paging: true,
-    pageSize: 5,
-    pageButtonCount: 2,
+    pageSize: 10,
+    pageButtonCount: 10,
     pageIndex: 1,
 
     onItemEditing: function(args) {
