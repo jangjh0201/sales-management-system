@@ -2,8 +2,6 @@ package com.drtrue.domain.account;
 
 import java.util.List;
 
-import com.drtrue.domain.product.Product;
-
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

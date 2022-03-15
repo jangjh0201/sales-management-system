@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.drtrue.domain.product.Product;
 import com.drtrue.global.aop.annotations.PerformanceAOPAnnotation;
 import com.drtrue.global.properties.SampleProperties;
 import com.drtrue.privacyspringbootstarter.aop.annotations.PrivacyAOPAnnotation;
@@ -107,7 +106,7 @@ public class AccountController {
         System.out.println("/board/postValue");
     }
 
-     /**
+    /**
      * product 전체 조회 웹서비스(Paging)
      * 
      * @return ResponseEntity
@@ -117,8 +116,9 @@ public class AccountController {
     @PrivacyAOPAnnotation
     @GetMapping("/account/retrieveAllPaging")
     @ResponseBody
-    public ResponseEntity<Page<Account>> retrieveAllPaging(HttpServletRequest request, Authentication authentication, @RequestParam Integer page) {
-        Page<Account> result= accountService.retrieveAllPaging(page);
+    public ResponseEntity<Page<Account>> retrieveAllPaging(HttpServletRequest request, Authentication authentication,
+            @RequestParam Integer page) {
+        Page<Account> result = accountService.retrieveAllPaging(page);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
