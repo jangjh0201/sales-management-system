@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -9,13 +10,23 @@
 	</parent>
 
 	<groupId>com.drtrue</groupId>
-	<artifactId>drtruebackend</artifactId>
+	<artifactId>sales-management-system</artifactId>
 	<version>0.1</version>
-	<name>drtruebackend</name>
-	<description>Dr True Backend project</description>
+	<name>sales-management-system</name>
+	<description>Sales Management System project</description>
+
+	<repositories>
+		<repository>
+			<id>local-repository</id> 
+			<name>local repository</name> 
+			<url>file://${lib/dir}</url> 
+		</repository>
+	</repositories>
+
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
 	<dependencies>
 		<!-- spring web 의존성 추가 -->
 		<dependency>
@@ -138,13 +149,22 @@
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 		</dependency>
-
+		
 		<!-- 개인정보처리 의존성 추가(커스텀 외부 자동 설정 Bean) -->
 		<dependency>
 			<groupId>com.drtrue</groupId>
 			<artifactId>privacy-spring-boot-starter</artifactId>
 			<version>0.1</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13.1</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>

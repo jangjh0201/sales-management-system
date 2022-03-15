@@ -9,7 +9,6 @@ import javax.persistence.Transient;
 
 import com.drtrue.domain.BaseEntity;
 import com.drtrue.domain.authority.Authority;
-import com.drtrue.privacyspringbootstarter.annotaion.Email;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,10 +21,11 @@ import lombok.EqualsAndHashCode;
  */
 @Entity
 @Data
-@EqualsAndHashCode(callSuper=false)
-public class Account extends BaseEntity{
+@EqualsAndHashCode(callSuper = false)
+public class Account extends BaseEntity {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     @Column(unique = true)
